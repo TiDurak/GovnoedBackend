@@ -4,7 +4,7 @@
 </h1>
 
 
-# GovnoedPromoAPI
+# GovnoedBackend
 
 ![Go](https://img.shields.io/badge/go-%2300ADD8.svg?style=for-the-badge&logo=go&logoColor=white)  
 
@@ -26,88 +26,35 @@ The project is in its final stage. Future bug fixes and other minor fixes may st
 
 
 ## Project Structure
-```
-├── cmd/
-│   └── api/
-│       └── main.go # API entry point
-└── internal/
-    ├── config/
-    │   └── config.go # Configuration loading and validation
-    ├── database/
-    │   ├── database.go # SQLite connection
-    │   ├── migrations/
-    │   │   └── 001_create_redeem_keys.sql # Creates the redeem keys table
-    │   │                             
-    │   └── migrations.go # Database migration management
-    ├── handler/
-    │   ├── generateRequest.go # Key generation request structure
-    │   ├── generateResponse.go # Key generation response structure
-    │   ├── health.go # HTTP health check
-    │   ├── promo.go # Promo key HTTP handlers
-    │   └── response.go # HTTP response helpers
-    ├── repository/
-    │   └── promo.go # Promo key database operations
-    └── service/
-        └── promo.go # Promo key business logic
-```
 
-```mermaid
----
-title: GovnoedPromoAPI
----
-flowchart
-	subgraph s1["GovnoedPromoAPI"]
-		subgraph s6["Handler"]
-			n10["127.0.0.1:8080/api/generate"]
-		end
-		subgraph s4["Service"]
-			subgraph s5["Repository"]
-				subgraph s7["Database"]
-					n6
-				end
-				n7@{ shape: "diam", label: "if true" }
-				n4@{ shape: "diam", label: "if false" }
-				n1["now - created_at &lt; 12h"]
-			end
-			n9["key_hash"]
-			n8["generate key"]
-		end		
-	end
-	subgraph s3["DebilBot"]
-		n5@{ shape: "lean-r", label: "is_used - edit to True / check" }
-		
-		n3["promo_keys.py"]
-	end
-	n2@{ shape: "cyl", label: "sqlite" }
-	n2 ---|"Get values from db"| s3
-	subgraph s2["Website + PHP"]
-		
-	end
-	n5@{ shape: "lean-r", label: "check if is_used" }
-	s3 ---|"is_used - edit to True"| n2
-	style s1 fill:#CB6CE6,stroke:#8C52FF,stroke-width:2px
-	n8 --- n9
-	n1 --- n4
-	n1 --- n7
-	s2 ---|"discord_id"| s6
-	n7 ---|"return error"| s6
-	s6 ---|"return key, reward or error"| s2
-	s6 --- s5
-	n4 --- s6
-	n9 --- s5
-	n6["open database"]
-	n4 --- s7
-	s7 ---|"INSERT discord_id, created_at, key_hash"| n2
-	s7 --- n1
-	style s4 fill:#0CC0DF
-	style s5 color:#00BF63,fill:#7ED957
-	style s7 fill:#FFDE59
-	style s6 fill:#FF5757
-	style n10 fill:#FF66C4
-	style s2 color:#FFFFFF,fill:#545454,stroke-width:0px
-	style s3 color:#FFFFFF,fill:#545454,stroke-width:0px
-	style n5 stroke-width:2px,stroke-dasharray:5 5
-```
+The backend is organized into three independent microservices:
+
+- **GovnoedPromo**: Handles promo code generation and management for the debilbot integration
+- **GovnoedUserItems**: Manages user items and related data
+- **GovnoedWeb**: Provides the web interface and serves the website frontend
+
+
+## Architecture
+
+This project employs a **microservices architecture** to maintain stability and ease of development. Each service is a standalone application that can be developed, tested, and deployed independently.
+
+### Communication
+
+The services communicate with each other through **HTTP API endpoints**. This decoupled design offers several advantages:
+
+- **Scalability**: Services can be scaled independently based on demand
+- **Maintainability**: Each service has a focused responsibility and a contained codebase
+- **Resilience**: Failure of one service doesn't necessarily bring down the entire system
+- **Development Flexibility**: Different services can use different databases and technologies if needed
+- **Easy Testing**: Individual services can be tested in isolation
+
+### Technology Stack
+
+All services are built in **Go** for:
+- High performance with minimal resource consumption
+- Simple, readable code compared to other systems languages
+- Fast compilation and deployment
+- Built-in concurrency support for handling multiple requests
 
 
 ## FAQ
