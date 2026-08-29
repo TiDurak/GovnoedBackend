@@ -6,14 +6,18 @@ import (
 )
 
 type Config struct {
-	HTTPAddress string
-	HTTPPort    string
+	HTTPAddress          string
+	HTTPPort             string
+	GovnoedPromoHTTPPort string
+	EconomicsDbPath      string
 }
 
 func NewConfig() Config {
 	return Config{
-		HTTPAddress: getEnv("GWEB_HTTP_ADDRESS", "127.0.0.1"),
-		HTTPPort:    getEnv("GWEB_HTTP_PORT", "8080"),
+		HTTPAddress:          getEnv("GWEB_HTTP_ADDRESS", "127.0.0.1"),
+		HTTPPort:             getEnv("GWEB_HTTP_PORT", "8080"),
+		GovnoedPromoHTTPPort: getEnv("GPROMO_HTTP_PORT", "8000"),
+		EconomicsDbPath:      getEnv("ECONOMICS_DATABASE_PATH", ""),
 	}
 }
 

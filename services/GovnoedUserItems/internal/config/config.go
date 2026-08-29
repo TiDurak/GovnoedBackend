@@ -16,7 +16,7 @@ func Load() Config {
 		HTTPAddress: "127.0.0.1",
 		HTTPPort:    getEnv("GUITEMS_HTTP_PORT", "8001"),
 
-		DatabasePath: getEnv("CARDS_DATABASE_PATH", "C:/Users/ivanp/Documents/debilbot/economics.db"),
+		DatabasePath: getEnv("CARDS_DATABASE_PATH", ""),
 	}
 }
 

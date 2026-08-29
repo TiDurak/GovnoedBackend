@@ -4,13 +4,17 @@ import (
 	"database/sql"
 	"log"
 
+	"github.com/tidurak/GovnoedBackend/services/GovnoedWeb/internal/config"
+
 	_ "modernc.org/sqlite"
 )
+
+var cfg = config.NewConfig()
 
 func Open() *sql.DB {
 	db, err := sql.Open(
 		"sqlite",
-		"C:/Users/ivanp/Documents/debilbot/economics.db",
+		cfg.EconomicsDbPath,
 	)
 	if err != nil {
 		log.Fatal(err)

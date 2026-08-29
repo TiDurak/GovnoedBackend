@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"net/http"
 
+	"github.com/tidurak/GovnoedBackend/services/GovnoedWeb/internal/config"
 	"github.com/tidurak/GovnoedBackend/services/GovnoedWeb/internal/services/auth"
 )
 
@@ -15,6 +16,8 @@ type PromoResponse struct {
 	Error     string `json:"error"`
 	Remaining int    `json:"remaining"`
 }
+
+var cfg = config.NewConfig()
 
 func GetKey(r *http.Request) (PromoResponse, error) {
 	user, ok := auth.GetSession(r)
@@ -34,7 +37,7 @@ func GetKey(r *http.Request) (PromoResponse, error) {
 	req, err := http.NewRequestWithContext(
 		r.Context(),
 		http.MethodPost,
-		"http://127.0.0.1:8000/api/promo/generate",
+		"http://127.0.0.1:"+cfg.GovnoedPromoHTTPPort+"/api/promo/generate",
 		bytes.NewReader(payload),
 	)
 	if err != nil {
