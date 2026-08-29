@@ -111,6 +111,18 @@ ul {
     color: var(--general-background-color);
 }
 
+.button:disabled {
+    background-color: var(--black-purple-text-color);
+    color: var(--general-background-color);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.button:disabled:hover {
+    background-color: var(--black-purple-text-color);
+    color: var(--general-background-color);
+}
+
 a:not(.button):link {
 	color: var(--link-color);
 }

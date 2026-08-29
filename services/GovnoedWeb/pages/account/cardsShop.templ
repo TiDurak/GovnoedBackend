@@ -26,7 +26,7 @@ templ CardShop(username string, discordID int, items userItems.ItemsResponse) {
 		for _, card := range data.Cards {
 			@components.ImgContentContainerRight("/static/img/debil_card/"+card.Name+".png", card.Title) {
 				if card.Name == items.CurrentCard {
-					<button disabled>ВЫБРАНА</button>
+					<button disabled class="container-content button">ВЫБРАНА</button>
 				} else if contains(items.Cards, card.Name) {
 					<form method="post" action="/account/card/select">
 						<input type="hidden" name="card" value={ card.Name }>

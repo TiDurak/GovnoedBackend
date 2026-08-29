@@ -80,7 +80,7 @@ func CardShop(username string, discordID int, items userItems.ItemsResponse) tem
 					}
 					ctx = templ.InitializeContext(ctx)
 					if card.Name == items.CurrentCard {
-						templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<button disabled>ВЫБРАНА</button>")
+						templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<button disabled class=\"container-content button\">ВЫБРАНА</button>")
 						if templ_7745c5c3_Err != nil {
 							return templ_7745c5c3_Err
 						}
