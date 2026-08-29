@@ -1,0 +1,24 @@
+package components
+
+import "github.com/tidurak/GovnoedBackend/services/GovnoedWeb/components/layout"
+
+templ Layout(title string) {
+	<!DOCTYPE html>
+	<html lang="ru">
+        @layout.Head(title) {}
+		<body>
+            <script src="/static/js/script.js" defer></script>
+			<div class="header">
+				govnoed.de
+				<img src="/static/favicons/favicon.ico">
+			</div>
+            @layout.Navbar() {}
+
+			<div class="content">
+				{ children... }
+			</div>
+
+			@layout.Footer() {}
+		</body>
+	</html>
+}

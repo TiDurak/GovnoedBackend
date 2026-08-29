@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS redeem_keys (
+    key_hash TEXT PRIMARY KEY,
+    creator_id INTEGER NOT NULL UNIQUE,
+    created_at INTEGER NOT NULL,
+    is_used BOOLEAN NOT NULL DEFAULT FALSE,
+    reward INTEGER NOT NULL
+);

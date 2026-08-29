@@ -1,0 +1,56 @@
+package account
+
+import (
+	"fmt"
+
+	"github.com/tidurak/GovnoedBackend/services/GovnoedWeb/components"
+	"github.com/tidurak/GovnoedBackend/services/GovnoedWeb/internal/data"
+	"github.com/tidurak/GovnoedBackend/services/GovnoedWeb/internal/services/userItems"
+)
+
+type UserItems struct {
+	CurrentCard string
+	Cards       []string
+}
+
+templ CardShop(username string, discordID int, items userItems.ItemsResponse) {
+	@components.Layout("Магазин карт") {
+		@components.Splash(
+			"✅",
+			"Дарова хуйлан по имени " + username + "!",
+			"Ты справился с авторизацией, теперь ты можешь покупать дизайн своей уёбищной карты",
+		)
+
+		<h1>DebilBot - Магазин карт</h1>
+
+		for _, card := range data.Cards {
+			@components.ImgContentContainerRight("/static/img/debil_card/"+card.Name+".png", card.Title) {
+				if card.Name == items.CurrentCard {
+					<button disabled>ВЫБРАНА</button>
+				} else if contains(items.Cards, card.Name) {
+					<form method="post" action="/account/card/select">
+						<input type="hidden" name="card" value={ card.Name }>
+						<button type="submit" class="container-content button">ВЗЯТЬ ЭТУ</button>
+					</form>
+				} else {
+					<p> { fmt.Sprintf("%d Gondon'ов", card.Price) } </p>
+
+					<form method="post" action="/account/card/buy">
+						<input type="hidden" name="card" value={ card.Name }>
+						<button type="submit" class="container-content button">КУПИТЬ</button>
+					</form>
+				}
+			}
+		}
+	}
+}
+
+func contains(cards []string, target string) bool {
+	for _, card := range cards {
+		if card == target {
+			return true
+		}
+	}
+
+	return false
+}

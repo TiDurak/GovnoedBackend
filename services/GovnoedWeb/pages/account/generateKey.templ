@@ -1,0 +1,102 @@
+package account
+
+import (
+	"github.com/tidurak/GovnoedBackend/services/GovnoedWeb/internal/services"
+    "github.com/tidurak/GovnoedBackend/services/GovnoedWeb/components"
+	"github.com/tidurak/GovnoedBackend/services/GovnoedWeb/internal/handler/getPromo"
+
+)
+
+templ GenerateKey(response getPromo.PromoResponse) {
+	@components.Layout("Получить ключ") {
+		<div class="promo-page">
+			<div class="promo-card">
+                <div class="promo-icon">🎁</div>
+                <h1>DebilBot Homeless Support</h1>
+                <p class="promo-subtitle">
+					Получи государственные Gondon'ы,
+					и слей всё в казике
+				</p>
+                if response.Key != "" {
+					<div class="reward">
+						<span class="reward-icon">💰</span>
+                        <div>
+						    <b>+750</b>
+                            <span>Gondons</span>
+						</div>
+					</div>
+
+					<div class="key-label">
+						Твоя социальная помощь
+					</div>
+
+					<div class="key-box">
+						<code id="promo-key">{ response.Key }</code>
+                        <button
+							type="button"
+							class="copy-button"
+							onclick="copyKey()"
+							id="copy-button"
+							title="Скопировать"
+						>
+							📋
+						</button>
+					</div>
+
+					<div class="command-title">Используй ключ в Discord</div>
+
+					<div class="command-box">
+						<code>/redeem_promo { response.Key }</code>
+					</div>
+
+					<div class="cooldown">
+						<span>Следующий ключ можно получить через</span>
+                        <b id="timer">{ services.FormatTime(response.Remaining) }</b>
+					</div>
+
+					<p class="hint">Ключ можно использовать только один раз.</p>
+
+				} else if response.Error != "" {
+					<div class="error-box">
+						<div class="error-icon">⏳</div>
+						if response.Remaining > 0 {
+							<span>Следующий ключ можно получить через</span>
+
+							<b class="error-timer" id="timer">{ services.FormatTime(response.Remaining) }</b>
+						}
+					</div>
+
+					if response.Remaining > 0 {
+						<script>startCooldown( { services.FormatTime(response.Remaining) } );</script>
+					}
+				} else {
+					<div class="reward">
+						<span class="reward-icon">💰</span>
+
+						<div>
+							<b>+750</b>
+                            <span>Gondons</span>
+						</div>
+					</div>
+
+					<p class="description">
+						Один промокод можно получить каждые 12 часов.
+					</p>
+
+					<form method="POST">
+						<button type="submit" class="generate-button">
+							🎁 Получить ключ
+						</button>
+					</form>
+
+					<p class="hint">
+						После генерации ключ можно использовать с помощью:
+					</p>
+					<p>
+						<code>/redeem_promo &lt;КОД&gt;</code>
+					</p>
+				}
+			</div>
+		</div>
+	}
+}

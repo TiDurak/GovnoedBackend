@@ -1,0 +1,25 @@
+package account
+
+import "github.com/tidurak/GovnoedBackend/services/GovnoedWeb/components"
+
+
+templ Account(username string, discordID int) {
+    @components.Layout("Аккаунт") {
+		@components.Splash("✅", 
+		"Дарова хуйлан по имени " + username + "!",
+		"Ты справился с авторизацией, теперь ты можешь получить социальную помощь")
+		<h1>DebilBot - Аккаунт</h1>
+		@components.ContentContainer("Привет, " + username + "!") {
+			<p>Discord ID: { discordID }</p>
+			<br><br>
+			<a href="/logout">Выйти</a>
+		}
+		@components.ContentContainer("DebilBot Homeless Support"){
+			<a href="/generate_key" class="container-content button">🎁 Получить социальную помощь</a>
+		}
+		@components.ContentContainer("Магазин DebilCard"){
+			<a href="/card_shop" class="container-content button">Купить дизайн для твой бомжарской карты</a>
+		}
+
+	}
+}

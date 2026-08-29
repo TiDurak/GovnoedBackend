@@ -1,0 +1,27 @@
+package components
+
+templ Splash(icon string, title string, text string) {
+    <script src="/static/js/splash.js" defer></script>
+    <div class="splash" id="splash">
+        <div class="splash__icon">{ icon }</div>
+
+        <div class="splash__content">
+            <div class="splash__title">
+                { title }
+            </div>
+
+            <div class="splash__text">
+                { text }
+            </div>
+        </div>
+
+        <button
+            class="splash__close"
+            type="button"
+            onclick="closeSplash()"
+            aria-label="Закрыть"
+        >
+            ×
+        </button>
+    </div>
+}

@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+:root {
+    /* COLORS */
+    /* General colors */
+    --general-background-color: rgb(28, 28, 31);
+    --additional-background-color: rgb(26, 25, 28);
+    --additional-background-color-2: rgb(21, 20, 22);
+    --third-background-color: rgb(9, 9, 10);
+    --general-text-color: rgb(214, 211, 219);
+    --black-purple-text-color: rgb(48, 40, 64);
+    --general-header-color: rgb(185, 173, 204);
+
+    /* Link colors */
+    --link-color: rgb(145, 87, 242);
+    --link-visited-color: rgb(160, 120, 227);
+    --link-hover-color: rgb(119, 66, 207);
+    --link-active-color: rgb(175, 128, 255);
+}
+
+html, body, .content {
+    flex: 1;
+    min-height: 100vh;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background: var(--general-background-color);
+    color: var(--general-text-color);
+    margin: 0;
+
+    font-family: "Noto Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--general-header-color);
+}
+
+ul {
+    list-style-type: "-  ";
+}
+
+.container-fluid {
+    padding: 0;
+}
+
+.content {
+    /* Page content */
+    margin: 4% 7% 4% 7%;
+    flex: 1 0 auto;
+}
+
+.header {
+    margin: 0;
+    padding: 10px 5vw 10px 5vw;
+    background-color: var(--additional-background-color-2);
+    color: var(--general-header-color);
+    text-align: right;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-size: 24pt;
+}
+
+.header img {
+    position: relative;
+    top: 6px;
+    object-fit: contain; 
+    height: 32px;
+}
+
+.footer {
+    bottom: 0;
+    width: 100%;
+    padding: 10px 0 10px 0;
+    background-color: var(--additional-background-color);
+    color: var(--general-header-color);
+    text-align: center;
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-size: 10pt;
+    flex-shrink: 0;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 24px;
+    background-color: var(--link-color);
+    color: var(--general-background-color);
+    border: none;
+    border-radius: 6px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.button:hover {
+    background-color: var(--link-hover-color);
+    color: var(--general-background-color);
+}
+
+.button:active {
+    background-color: var(--link-active-color);
+    color: var(--general-background-color);
+}
+
+a:not(.button):link {
+	color: var(--link-color);
+}
+
+a:not(.button):visited {
+	color: var(--link-visited-color);
+}
+
+a:not(.button):hover {
+	color: var(--link-hover-color);
+}
+
+a:not(.button):active {
+	color: var(--link-active-color);
+}
+
+.material-symbols-outlined {
+    /* Google icons settings */
+    padding: 5px;
+    font-weight: 100;
+    display: inline-block;
+    vertical-align: bottom;
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 20
+}
+
+.nav {
+    height: 50px;
+    width: 100%;
+    background-color: var(--additional-background-color);
+    position: sticky;
+    top: 0;
+}
+  
+.nav > .nav-btn {
+    display: none;
+}
+  
+.nav > .nav-links {
+    display: inline;
+    float: right;
+    font-size: 18px;
+}
+  
+.nav > .nav-links > a {
+    display: inline-block;
+    padding: 13px 5vw 13px 5vw;
+    text-decoration: none;
+    color: #efefef;
+}
+  
+.nav > .nav-links > a:hover {
+    background-color: var(--additional-background-color)
+}
+  
+.nav > #nav-check {
+    display: none;
+}
+  
+@media (max-width:600px) {
+    .nav > .nav-btn {
+        display: inline-block;
+        position: absolute;
+        right: 0px;
+        top: 0px;
+    }
+    .nav > .nav-btn > label {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        padding: 13px;
+    }
+    .nav > .nav-btn > label > span {
+        display: block;
+        width: 25px;
+        height: 10px;
+        border-top: 2px solid #eee;
+    }
+    .nav > .nav-links {
+        position: absolute;
+        display: block;
+        width: 100%;
+        background-color: var(--additional-background-color);
+        height: 0px;
+        transition: all 0.3s ease-in;
+        overflow-y: hidden;
+        top: 50px;
+        left: 0px;
+    }
+    .nav > .nav-links > a {
+        display: block;
+        width: 100%;
+    }
+    .nav > #nav-check:not(:checked) ~ .nav-links {
+        height: 0px;
+    }
+    .nav > #nav-check:checked ~ .nav-links {
+        height: calc(100vh - 50px);
+        overflow-y: auto;
+    }
+}
+
+
+

@@ -1,0 +1,36 @@
+package components
+
+templ ContentContainer(title string) {
+    <section class="container-pure">
+            <div>
+                <h2>{ title }</h2>
+                { children... }
+            </div>
+            </section>
+}
+
+templ ImgContentContainerRight(imagePath string, title string) {
+    <section class="container-content">
+            <div class="container-content-image">
+                <img src={ imagePath } alt="Описание изображения">
+            </div>
+
+            <div class="container-content-text">
+                <h2>{ title }</h2>
+                { children... }
+            </div>
+            </section>
+}
+
+templ ImgContentContainerLeft(imagePath string, title string) {
+    <section class="container-content">
+            <div class="container-content-text">
+                <h2>{ title }</h2>
+                { children... }
+            </div>
+
+            <div class="container-content-image">
+                <img src={ imagePath } alt="Описание изображения">
+            </div>
+            </section>
+}

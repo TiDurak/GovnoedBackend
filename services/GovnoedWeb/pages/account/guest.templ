@@ -1,0 +1,18 @@
+package account
+
+import "github.com/tidurak/GovnoedBackend/services/GovnoedWeb/components"
+
+templ Guest() {
+    @components.Cookie()
+    @components.Layout("Вход в аккаунт") {
+        @components.ContentContainer("DebilBot Аккаунт") {
+            <p>
+                Войдите через Discord, для доступа к промокодам <s>и магазину</s>
+            </p>
+
+            <a href="/login" class="button">
+                Войти через Discord
+            </a>
+        }
+    }
+}

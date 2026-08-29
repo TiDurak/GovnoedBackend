@@ -1,0 +1,347 @@
+.promo-page {
+    width: 100%;
+    min-height: 70vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px 20px;
+
+    box-sizing: border-box;
+}
+
+
+.promo-card {
+    width: 100%;
+    max-width: 500px;
+
+    padding: 38px;
+
+    box-sizing: border-box;
+
+    background: #18181b;
+    border: 1px solid #2a2a2f;
+    border-radius: 18px;
+
+    text-align: center;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.25);
+}
+
+
+.promo-icon {
+    font-size: 48px;
+
+    margin-bottom: 15px;
+}
+
+
+.promo-card h1 {
+    margin: 0;
+
+    font-size: 28px;
+    font-weight: 700;
+}
+
+
+.promo-subtitle {
+    margin: 10px 0 28px;
+
+    color: #a1a1aa;
+
+    line-height: 1.5;
+}
+
+
+/*
+ * Награда
+ */
+
+.reward {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    padding: 16px;
+
+    margin-bottom: 25px;
+
+    background: #202024;
+
+    border: 1px solid #303036;
+    border-radius: 12px;
+}
+
+
+.reward-icon {
+    font-size: 28px;
+}
+
+
+.reward div {
+    display: flex;
+    flex-direction: column;
+
+    text-align: left;
+}
+
+
+.reward strong {
+    font-size: 20px;
+}
+
+
+.reward span {
+    color: #a1a1aa;
+    font-size: 13px;
+}
+
+
+/*
+ * Ключ
+ */
+
+.key-label {
+    margin-bottom: 8px;
+
+    color: #a1a1aa;
+
+    font-size: 13px;
+}
+
+
+.key-box {
+    display: flex;
+    align-items: center;
+
+    padding: 5px 6px 5px 16px;
+
+    background: #101014;
+
+    border: 1px solid #35353c;
+    border-radius: 10px;
+
+    margin-bottom: 22px;
+}
+
+
+.key-box code {
+    flex: 1;
+
+    overflow: hidden;
+
+    color: #f4f4f5;
+
+    font-size: 18px;
+    font-weight: 600;
+
+    letter-spacing: 2px;
+
+    white-space: nowrap;
+}
+
+
+.copy-button {
+    border: 0;
+
+    padding: 10px 12px;
+
+    background: #29292f;
+
+    border-radius: 7px;
+
+    cursor: pointer;
+
+    font-size: 16px;
+
+    transition: background 0.15s;
+}
+
+
+.copy-button:hover {
+    background: #36363d;
+}
+
+
+/*
+ * Discord команда
+ */
+
+.command-title {
+    margin-bottom: 8px;
+
+    color: #a1a1aa;
+
+    font-size: 13px;
+}
+
+
+.command-box {
+    padding: 13px;
+
+    background: #101014;
+
+    border-radius: 9px;
+
+    margin-bottom: 20px;
+}
+
+
+.command-box code {
+    color: #e4e4e7;
+
+    font-size: 14px;
+}
+
+
+/*
+ * Таймер
+ */
+
+.cooldown {
+    display: flex;
+    flex-direction: column;
+
+    gap: 5px;
+
+    padding: 16px;
+
+    background: #202024;
+
+    border-radius: 10px;
+
+    color: #a1a1aa;
+
+    font-size: 13px;
+}
+
+
+.cooldown strong {
+    color: #f4f4f5;
+
+    font-size: 24px;
+
+    letter-spacing: 2px;
+}
+
+
+.hint {
+    margin: 20px 0 0;
+
+    color: #71717a;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+}
+
+
+/*
+ * Кнопка генерации
+ */
+
+.generate-button {
+    width: 100%;
+
+    padding: 14px 20px;
+
+    border: 0;
+    border-radius: 10px;
+
+    background: rgb(145, 87, 242);
+    color: #18181b;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.15s,
+        filter 0.15s;
+}
+
+
+.generate-button:hover {
+    filter: brightness(1.1);
+
+    transform: translateY(-1px);
+}
+
+
+.generate-button:active {
+    transform: translateY(0);
+}
+
+
+/*
+ * Ошибка / cooldown
+ */
+
+.error-box {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+
+    padding: 20px;
+
+    margin-bottom: 20px;
+
+    background: #211b1b;
+
+    border: 1px solid #3a2929;
+
+    border-radius: 12px;
+
+    color: #d4d4d8;
+}
+
+
+.error-icon {
+    font-size: 30px;
+}
+
+
+.error-timer {
+    margin-top: 3px;
+
+    color: #f4f4f5;
+
+    font-size: 24px;
+
+    letter-spacing: 2px;
+}
+
+
+/*
+ * Мобильные устройства
+ */
+
+@media (max-width: 550px) {
+
+    .promo-page {
+        padding: 20px 12px;
+    }
+
+
+    .promo-card {
+        padding: 28px 20px;
+    }
+
+
+    .promo-card h1 {
+        font-size: 24px;
+    }
+
+
+    .key-box code {
+        font-size: 15px;
+        letter-spacing: 1px;
+    }
+
+}
