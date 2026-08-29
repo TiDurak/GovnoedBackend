@@ -1,8 +1,6 @@
 APP_NAME := govnoed-web
-BIN_DIR := ./bin
-SERVICES_ROOT := ./services/
-PROMO := GovnoedPromo/cmd/api
-WEB := GovnoedWeb/cmd/web
+BIN_DIR := bin
+CMD_PATH := ./cmd/web
 
 .PHONY: all \
 	build \
