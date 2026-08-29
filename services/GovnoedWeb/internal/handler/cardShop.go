@@ -37,6 +37,7 @@ func CardShop(w http.ResponseWriter, r *http.Request) {
 			"Failed to get user items",
 			http.StatusInternalServerError,
 		)
+		fmt.Println(err)
 		return
 	}
 
