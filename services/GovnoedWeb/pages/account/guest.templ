@@ -4,10 +4,11 @@ import "github.com/tidurak/GovnoedBackend/services/GovnoedWeb/components"
 
 templ Guest() {
     @components.Cookie()
-    @components.Layout("Вход в аккаунт") {
+    @components.Layout("Вход в аккаунт",
+    "Страница с авторизацией для доступа в магазин и к соц. помощи DebilBot Homeless Support") {
         @components.ContentContainer("DebilBot Аккаунт") {
             <p>
-                Войдите через Discord, для доступа к промокодам <s>и магазину</s>
+                Войдите через Discord OAuth2, для доступа к промокодам и магазину
             </p>
 
             <a href="/login" class="button">

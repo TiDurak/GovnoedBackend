@@ -4,7 +4,8 @@ import "github.com/tidurak/GovnoedBackend/services/GovnoedWeb/components"
 
 
 templ Account(username string, discordID int) {
-    @components.Layout("Аккаунт") {
+    @components.Layout("Аккаунт",
+	"Личный кабинет дебилбота. Тут вы можете получить соц. помощь или купить различные плюшки для дебилбота") {
 		@components.Splash("✅", 
 		"Дарова хуйлан по имени " + username + "!",
 		"Ты справился с авторизацией, теперь ты можешь получить социальную помощь")

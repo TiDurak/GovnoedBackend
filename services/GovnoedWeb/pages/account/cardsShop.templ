@@ -14,7 +14,8 @@ type UserItems struct {
 }
 
 templ CardShop(username string, discordID int, items userItems.ItemsResponse) {
-	@components.Layout("Магазин карт") {
+	@components.Layout("Магазин карт",
+	"Покупка банковских карточек DebilCard системы XyISA происходит тут") {
 		@components.Splash(
 			"✅",
 			"Дарова хуйлан по имени " + username + "!",

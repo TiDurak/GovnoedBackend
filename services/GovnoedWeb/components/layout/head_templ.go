@@ -8,7 +8,7 @@ package layout
 import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
-func Head(title string) templ.Component {
+func Head(title, description string) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -29,20 +29,33 @@ func Head(title string) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<head><meta charset=\"UTF-8\"><meta name=\"theme-color\" content=\"#161618\"><meta name=\"description\" content=\"Первый русскоязычный сайт для программистов-говноедов\"><meta name=\"keywords\" content=\"говно, говноед, govno, govnoed, gdisclaimer, gamerdisclaimer, debil, debilbot, \r\n        дебил, дебилбот\"><meta name=\"author\" content=\"gdisclaimer\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><link rel=\"manifest\" href=\"/static/favicons/manifest.webmanifest\"><link rel=\"icon\" type=\"image/x-icon\" href=\"/static/favicons/favicon.ico\"><link rel=\"icon\" type=\"image/png\" href=\"/static/favicons/favicon-16x16.png\" sizes=\"16x16\"><link rel=\"icon\" type=\"image/png\" href=\"/static/favicons/favicon-32x32.png\" sizes=\"32x32\"><link rel=\"icon\" type=\"image/png\" href=\"/static/favicons/favicon-192x192.png\" sizes=\"192x192\"><link rel=\"icon\" type=\"image/png\" href=\"/static/favicons/favicon-512x512.png\" sizes=\"512x512\"><link rel=\"apple-touch-icon\" href=\"/static/favicons/apple-touch-icon.png\"><link rel=\"stylesheet\" href=\"/static/css/main.css\"><link rel=\"stylesheet\" href=\"/static/css/splash.css\"><link rel=\"stylesheet\" href=\"/static/css/content_container.css\"><link rel=\"stylesheet\" href=\"/static/css/generate_key_style.css\"><title>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<head><meta charset=\"UTF-8\"><meta name=\"theme-color\" content=\"#161618\"><meta name=\"description\" content=\"Первый русскоязычный сайт для программистов-говноедов\"><meta name=\"keywords\" content=\"говно, говноед, govno, govnoed, gdisclaimer, gamerdisclaimer, debil, debilbot, \r\n        дебил, дебилбот\"><meta name=\"author\" content=\"gdisclaimer\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><link rel=\"manifest\" href=\"/static/favicons/manifest.webmanifest\"><link rel=\"icon\" type=\"image/x-icon\" href=\"/static/favicons/favicon.ico\"><link rel=\"icon\" type=\"image/png\" href=\"/static/favicons/favicon-16x16.png\" sizes=\"16x16\"><link rel=\"icon\" type=\"image/png\" href=\"/static/favicons/favicon-32x32.png\" sizes=\"32x32\"><link rel=\"icon\" type=\"image/png\" href=\"/static/favicons/favicon-192x192.png\" sizes=\"192x192\"><link rel=\"icon\" type=\"image/png\" href=\"/static/favicons/favicon-512x512.png\" sizes=\"512x512\"><link rel=\"apple-touch-icon\" href=\"/static/favicons/apple-touch-icon.png\"><meta property=\"og:title\" content=\"{ title } - govnoed.de\"><meta property=\"og:description\" content=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var2 string
-		templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(title)
+		templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.ResolveAttributeValue(description)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/layout/head.templ`, Line: 26, Col: 22}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/layout/head.templ`, Line: 22, Col: 61}
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ_7745c5c3_Var2)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, " - govnoed.de</title></head>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "\"><meta property=\"og:image\" content=\"/static/img/3.png\"><meta property=\"og:type\" content=\"website\"><link rel=\"stylesheet\" href=\"/static/css/main.css\"><link rel=\"stylesheet\" href=\"/static/css/splash.css\"><link rel=\"stylesheet\" href=\"/static/css/content_container.css\"><link rel=\"stylesheet\" href=\"/static/css/generate_key_style.css\"><title>")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		var templ_7745c5c3_Var3 string
+		templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(title)
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/layout/head.templ`, Line: 31, Col: 22}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, " - govnoed.de</title></head>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

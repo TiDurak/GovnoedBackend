@@ -59,7 +59,7 @@ func Guest() templ.Component {
 					}()
 				}
 				ctx = templ.InitializeContext(ctx)
-				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<p>Войдите через Discord, для доступа к промокодам <s>и магазину</s></p><a href=\"/login\" class=\"button\">Войти через Discord</a>")
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<p>Войдите через Discord OAuth2, для доступа к промокодам и магазину</p><a href=\"/login\" class=\"button\">Войти через Discord</a>")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
@@ -71,7 +71,8 @@ func Guest() templ.Component {
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = components.Layout("Вход в аккаунт").Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = components.Layout("Вход в аккаунт",
+			"Страница с авторизацией для доступа в магазин и к соц. помощи DebilBot Homeless Support").Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

@@ -92,7 +92,7 @@ func CardShop(username string, discordID int, items userItems.ItemsResponse) tem
 						var templ_7745c5c3_Var4 string
 						templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.ResolveAttributeValue(card.Name)
 						if templ_7745c5c3_Err != nil {
-							return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/account/cardsShop.templ`, Line: 32, Col: 56}
+							return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/account/cardsShop.templ`, Line: 33, Col: 56}
 						}
 						_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ_7745c5c3_Var4)
 						if templ_7745c5c3_Err != nil {
@@ -110,7 +110,7 @@ func CardShop(username string, discordID int, items userItems.ItemsResponse) tem
 						var templ_7745c5c3_Var5 string
 						templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(fmt.Sprintf("%d Gondon'ов", card.Price))
 						if templ_7745c5c3_Err != nil {
-							return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/account/cardsShop.templ`, Line: 36, Col: 52}
+							return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/account/cardsShop.templ`, Line: 37, Col: 52}
 						}
 						_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 						if templ_7745c5c3_Err != nil {
@@ -123,7 +123,7 @@ func CardShop(username string, discordID int, items userItems.ItemsResponse) tem
 						var templ_7745c5c3_Var6 string
 						templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.ResolveAttributeValue(card.Name)
 						if templ_7745c5c3_Err != nil {
-							return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/account/cardsShop.templ`, Line: 39, Col: 56}
+							return templ.Error{Err: templ_7745c5c3_Err, FileName: `pages/account/cardsShop.templ`, Line: 40, Col: 56}
 						}
 						_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ_7745c5c3_Var6)
 						if templ_7745c5c3_Err != nil {
@@ -143,7 +143,8 @@ func CardShop(username string, discordID int, items userItems.ItemsResponse) tem
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = components.Layout("Магазин карт").Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = components.Layout("Магазин карт",
+			"Покупка банковских карточек DebilCard системы XyISA происходит тут").Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

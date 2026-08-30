@@ -2,10 +2,10 @@ package components
 
 import "github.com/tidurak/GovnoedBackend/services/GovnoedWeb/components/layout"
 
-templ Layout(title string) {
+templ Layout(title, description string) {
 	<!DOCTYPE html>
 	<html lang="ru">
-        @layout.Head(title) {}
+        @layout.Head(title, description) {}
 		<body>
             <script src="/static/js/script.js" defer></script>
 			<div class="header">

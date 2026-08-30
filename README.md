@@ -50,6 +50,10 @@ All services are built in **Go** for:
 - Built-in concurrency support for handling multiple requests
 
 
+## Deploy
+
+Look [GovnoedBackend Wiki - Deploy me](https://github.com/TiDurak/GovnoedBackend/wiki/Deploy-me)
+
 ## FAQ
 
 Q: Why was the backend rewritten?  

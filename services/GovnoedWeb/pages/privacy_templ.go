@@ -53,7 +53,8 @@ func Privacy() templ.Component {
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = components.Layout("Политика конфиденциальности").Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = components.Layout("Политика конфиденциальности",
+			"Политика конфиденциальности дебилбота. Обязательно к прочтению").Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
